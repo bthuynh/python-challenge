@@ -26,7 +26,6 @@ import csv
 
 votes = []
 candidate = []
-candidatelist = []
 kvote = 0
 cvote = 0
 lvote = 0
@@ -58,9 +57,12 @@ for name in candidate:
     elif name == name4:
         ovote = ovote + 1
 
+def most_frequent(candidate): 
+    return max(set(candidate), key = candidate.count)
 
 
 total_votes = len(votes)
+winner = most_frequent(candidate)
 knumber = round(int(kvote) / int(total_votes),2)
 cnumber = round(int(cvote) / int(total_votes),2)
 lnumber = round(int(lvote) / int(total_votes),2)
@@ -71,6 +73,8 @@ lpercent = "{:.0%}".format(lnumber)
 opercent = "{:.0%}".format(onumber)
 
 
+
+
 print("Election Results")
 print("--------------------------")
 print(f"Total Votes: {total_votes}")
@@ -79,7 +83,7 @@ print(f"Correy: {cpercent} ({cvote})")
 print(f"Li: {lpercent} ({lvote})")
 print(f"O'Tooley: {opercent} ({ovote})")
 print("--------------------------")
-print("Winner: Khan")
+print(f"Winner: {winner}")
 print("--------------------------")
 
 
